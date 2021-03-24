@@ -1,0 +1,33 @@
+---
+title: "Listing of Outputs"
+output: html_document
+resource_files:
+- outputs/g_plot.pdf
+- outputs/t_table.html
+---
+
+
+
+```{r, echo = FALSE, results = "asis"}
+
+short <- list.files("outputs", full.names = FALSE)
+full <- list.files("outputs", full.names = TRUE)
+
+
+template <- "<li><a href={path}> {name}</a> </li>"
+
+cat(
+    "<ul>",
+    glue::glue(template, path = full, name = short),
+    "</ul>"
+)
+```
+
+
+
+```{r}
+### For debug purposes only
+list.files()
+list.files("outputs/")
+```
+
